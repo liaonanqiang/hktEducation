@@ -1,0 +1,23 @@
+version: '3.5' # We use version 3.5 syntax
+services: # Here we define our service(s)
+    hkteducation-service: # The name of the service
+      container_name: hkteducationcontainer  # Container name
+      build: ./ # Location of our Dockerfile
+      volumes: # Volume binding
+        - './:/usr/src/app' 
+      ports: 
+        - '4200:4200' # Port mapping
+      command: > 
+        bash -c "npm install && ng serve --host 0.0.0.0 --port 4200  --proxy-config proxy.conf.json"
+    #     # ng serve --host 0.0.0.0 --port 4200 --proxy-config proxy.conf.json
+
+
+    node-service:
+      container_name: nodecontainer
+      build: ./node-api
+      volumes:
+        - './node-api:/usr/node-api'
+        - '/usr/node-api/node_modules'
+      ports:
+        - '3000:3000'
+      command: npm start

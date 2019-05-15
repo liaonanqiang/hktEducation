@@ -10,9 +10,10 @@ router.get('/', function (req, res, next) {
     record = JSON.stringify(rows[0]);
     console.log('Data received from Db:\n');
     console.log(record);
-  });
 
-  res.json({ "data": record});
+  });
+    res.json({ "data": record});
+  
 });
 
 module.exports = router;
