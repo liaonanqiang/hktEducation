@@ -4,6 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var users = require('./routes/users');
 var app = express();
+var http=require('http');
 
 var config = require('./.env');
 app.use(bodyParser.json());
@@ -37,12 +38,14 @@ process.on('unhandledRejection', function (reason, promise) {
   reporter("uncaughtException", (new Date).toUTCString(), reason.message || reason);
 })
 
+// app.listen(3000, "0.0.0.0");
+
 app.use('/api', users);
 
 console.log('port', config.SERVER_PORT)
 
-//app.listen(3000, () => {
+// app.listen(3000, "10.0.2.2",() => {
 //   console.log('connected')
-//})
+// })
 
 module.exports = app;

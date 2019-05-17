@@ -5,14 +5,16 @@ var db = require('../mysql/conn.js');
 var record;
 router.get('/', function (req, res, next) {
 
-  db.con.query('SELECT * FROM hkt.tbl_user;', (err, rows) => {
+  db.con.query('SELECT * FROM hkt.tbl_users_group;', (err, rows) => {
     if (err) throw err;
     record = JSON.stringify(rows[0]);
     console.log('Data received from Db:\n');
     console.log(record);
 
   });
+
     res.json({ "data": record});
+
   
 });
 

@@ -17,18 +17,19 @@ import { HttpClient } from '@angular/common/http';
 export class ResolverserviceService implements Resolve<any> {
 
   constructor(private _http: HttpClient, private router: Router, private route: ActivatedRoute) { }
-
+      
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     let url = route.data['path'];
     return this._http.get(url).pipe(
       take(1),
       map(res => {
         if (res) {
+        console.log('33333333')
           //console.log(res)
           return res;
         } else { 
           this.router.navigate(['']);
-          return null;
+          return res;
         }
       })
     );

@@ -36,6 +36,7 @@ export class CustomerComponent implements OnInit {
       mergeMap(route => route.data),)
       .subscribe(e => {
         console.log('eeeeeeeeeeeeeeeee')
+        console.log(e)
         console.log(JSON.parse(e.solverKey.data))
         //console.log(JSON.parse(JSON.parse(e.solverKey._body).data));
         this.obj = JSON.parse(e.solverKey.data);

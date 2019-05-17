@@ -7,8 +7,11 @@ services: # Here we define our service(s)
         - './:/usr/src/app' 
       ports: 
         - '4200:4200' # Port mapping
+      # command: npm start
+      links:
+        - node-service
       command: > 
-        bash -c "npm install && ng serve --host 0.0.0.0 --port 4200  --proxy-config proxy.conf.json"
+        bash -c "ng serve  --proxy-config proxy.conf.json --host 0.0.0.0 --port 4200"
     #     # ng serve --host 0.0.0.0 --port 4200 --proxy-config proxy.conf.json
 
 
@@ -18,6 +21,9 @@ services: # Here we define our service(s)
       volumes:
         - './node-api:/usr/node-api'
         - '/usr/node-api/node_modules'
+        - './conf/my.cnf:/etc/my.cnf'
       ports:
         - '3000:3000'
-      command: npm start
+      command: npm start 
+      # command: > 
+      #   bash -c "npm start  --host 0.0.0.0"
