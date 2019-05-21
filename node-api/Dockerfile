@@ -4,11 +4,11 @@ RUN mkdir -p /usr/node-api
 
 WORKDIR /usr/node-api
 
-COPY package.json ./
+COPY package.json ./usr/node-api
 
 RUN npm install
 
-COPY . .
+COPY . /usr/node-api
 
 EXPOSE 3000
 

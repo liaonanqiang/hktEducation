@@ -4,8 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { NavigationEnd } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -21,6 +19,7 @@ export class CustomerComponent implements OnInit {
   ngOnInit() { }
 
   subTopic() {
+ 
 
     this.router
       .events.pipe(

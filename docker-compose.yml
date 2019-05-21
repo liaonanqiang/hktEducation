@@ -5,6 +5,7 @@ services: # Here we define our service(s)
       build: ./ # Location of our Dockerfile
       volumes: # Volume binding
         - './:/usr/src/app' 
+        - ./node_modules:/usr/src/app/node_modules
       ports: 
         - '4200:4200' # Port mapping
       # command: npm start
@@ -20,7 +21,7 @@ services: # Here we define our service(s)
       build: ./node-api
       volumes:
         - './node-api:/usr/node-api'
-        - '/usr/node-api/node_modules'
+        - ./node-api/node_modules:/usr/node-api/node_modules
         - './conf/my.cnf:/etc/my.cnf'
       ports:
         - '3000:3000'
