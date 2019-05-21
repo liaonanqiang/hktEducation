@@ -20,7 +20,15 @@ export class ResolverserviceService implements Resolve<any> {
       
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     let url = route.data['path'];
-    return this._http.get(url).pipe(
+    let user = { "id" : "1"};
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+    // let param = JSON.stringify(user);
+    // console.log(param)
+    return this._http.post<any>(url,user).pipe(
+
+    // return this._http.post(url,{JSON.stringify(user)},{ options:{ headers: headers}}).pipe(
       take(1),
       map(res => {
         if (res) {
@@ -32,7 +40,6 @@ export class ResolverserviceService implements Resolve<any> {
           return res;
         }
       })
-    );
+    )
   }
-
 }
