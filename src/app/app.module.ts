@@ -8,6 +8,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { CommonModule } from '@angular/common';
 import { ResolverserviceService } from './resolverservice.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {
     path: 'customer',
@@ -16,12 +17,21 @@ const routes: Routes = [
       solverKey: ResolverserviceService
     },
     data: { path: '/api' }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    // resolve: {
+    //   solverKey: ResolverserviceService
+    // },
+    // data: { path: '/api' }
   }
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerComponent
+    CustomerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
