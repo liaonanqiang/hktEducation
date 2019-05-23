@@ -41,7 +41,8 @@ function rabbit () {
             if (error) {
                 reject(error);
             } else {
-                resolve(JSON.parse(msg.content.toString()));
+                // resolve(JSON.parse(msg.content.toString()));
+                resolve(msg.content.toString());
             }
 
 		    }, { noAck: true });

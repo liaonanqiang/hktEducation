@@ -8,24 +8,12 @@
     <title>HKT Education - Login</title>
 	<link rel="shortcut icon" type="image/png" href="../../assets/images/fav_icon.png">
     <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link href="../assets/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
     <link rel="stylesheet" href="../assets/fonts/fontawesome/css/fontawesome-all.css">
     <style>
-    html,
-    body {
-        height: 100%;
-    }
-
-    body {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-        align-items: center;
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
+  
     </style>
 </head>
 
@@ -37,19 +25,28 @@
         <div class="card ">
             <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="../assets/images/logo.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
             <div class="card-body">
-                <form>
+                <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off">
+                        <input class="form-control form-control-lg"  formControlName="username" id="username" type="text" placeholder="Username" autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+				            <div *ngIf="f.username.errors.required">Username is required</div>
+				        </div>
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="password" type="password" placeholder="Password">
+                        <input class="form-control form-control-lg" formControlName="password" id="password" type="password" placeholder="Password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+				            <div *ngIf="f.password.errors.required">Password is required</div>
+				        </div>
                     </div>
                     <div class="form-group">
                         <label class="custom-control custom-checkbox">
                             <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
                         </label>
                     </div>
-                    <a href="dashboard.html"><span type="submit" class="btn btn-primary btn-lg btn-block">Sign in</span></a>
+                    <div class="form-group">
+                    	<button [disabled]="loading" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                    <!-- <a href="dashboard.html"><span type="submit" class="btn btn-primary btn-lg btn-block">Sign in</span></a> -->
+                </div>
                 </form>
             </div>
             <div class="card-footer-item card-footer-item-bordered">

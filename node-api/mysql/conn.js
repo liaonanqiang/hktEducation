@@ -7,6 +7,7 @@ var db_config = {
   port: '3307',
   user: 'hktuser',
   password: 'roota',
+  multipleStatements: true
 };
 //  this.con = mysql.createConnection({
 //   host: '192.168.56.1',
