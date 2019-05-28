@@ -8,7 +8,7 @@ COPY package.json ./usr/node-api
 
 RUN npm install
 
-COPY . /usr/node-api
+COPY . .
 
 EXPOSE 3000
 

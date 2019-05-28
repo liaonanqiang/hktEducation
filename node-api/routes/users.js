@@ -8,12 +8,10 @@ const querystring = require('querystring');
 rabbit  = new rabbit();
 db = new db(); 
 var param;
-router.post('/', function (req, res, next) {
+console.log('3333')
+router.get('/', function (req, res, next) {
     var data = req.body || '1';
-    const publish_promise = rabbit.publishAmqp('search_name',data);
-    const subscribe_promise = rabbit.subscribeAmqp('search_name');
-
-     subscribe_promise.then((result) => { 
+ 
 	    db.con.query('SELECT * FROM hkt.tbl_users_group;', (err, rows) => {
 		    if (err) throw err;
 		    record = JSON.stringify(rows[0]);
@@ -22,11 +20,7 @@ router.post('/', function (req, res, next) {
 		    res.json({ "data": record,"status":"200"});
        });
 
-    }).catch(err => {
-    // cancelled
-    });
+    })
 
-   
-});
 
 module.exports = router;

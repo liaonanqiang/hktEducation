@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,4 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 export class AppComponent {
   title = 'learningSystem';
+  constructor( private route: ActivatedRoute, private router: Router) {
+    this.router.navigate(['/login']);
+  }
 }

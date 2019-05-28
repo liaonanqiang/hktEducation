@@ -19,6 +19,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
+import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: 'customer',
@@ -35,6 +36,10 @@ const routes: Routes = [
     //   solverKey: ResolverserviceService
     // },
     // data: { path: '/api' }
+  },
+    {
+    path: 'dashboard',
+    component: DashboardComponent,
   }
 ]
 @NgModule({
@@ -42,7 +47,8 @@ const routes: Routes = [
     AppComponent,
     CustomerComponent,
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

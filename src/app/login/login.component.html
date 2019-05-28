@@ -23,17 +23,19 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="../assets/images/logo.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
+            <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="../assets/images/logo.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span>
+             <span  *ngIf="error" class="alert alert-danger">{{message}}</span>
+            </div>
             <div class="card-body">
                 <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
-                        <input class="form-control form-control-lg"  formControlName="username" id="username" type="text" placeholder="Username" autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+                        <input class="form-control form-control-lg"  formControlName="username" id="username" type="text" placeholder="Username" autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" (keydown)="changed()"/>
                         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
 				            <div *ngIf="f.username.errors.required">Username is required</div>
 				        </div>
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" formControlName="password" id="password" type="password" placeholder="Password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                        <input class="form-control form-control-lg" formControlName="password" id="password" type="password" placeholder="Password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" (keydown)="changed()"/>
                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
 				            <div *ngIf="f.password.errors.required">Password is required</div>
 				        </div>
@@ -60,8 +62,8 @@
     <!-- end login page  -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../assets/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.bundle.js"></script>
 </body>
  
 </html>

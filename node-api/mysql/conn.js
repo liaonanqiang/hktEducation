@@ -4,7 +4,7 @@ const mysql = require('mysql');
 
 var db_config = {
   host: '192.168.56.1',
-  port: '3307',
+  port: '3308',
   user: 'hktuser',
   password: 'roota',
   multipleStatements: true

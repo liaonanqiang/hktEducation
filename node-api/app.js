@@ -40,12 +40,11 @@ process.on('unhandledRejection', function (reason, promise) {
 })
 
 // app.listen(3000, "0.0.0.0");
-
 app.use('/api', users);
-app.use('/auth/login', login);
+app.use('/api/auth/login', login);
 //console.log('port', config.SERVER_PORT)
 
-// app.listen(3000, "10.0.2.2",() => {
+// app.listen(3000, "10.0.2.15",() => {
 //   console.log('connected')
 // })
 
