@@ -1,18 +1,20 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../mysql/conn.js');
 var rabbit = require('../rabbitmq/publish_amqp.js');
 var amqp = require('amqplib/callback_api');
 var encryption = require('../auth/encryption.js');
 var authToken = require('../auth/authToken.js');
 var record;
+var db = require('../mysql/conn.js');
+db = new db();
 const querystring = require('querystring');
 rabbit  = new rabbit();
 authToken  = new authToken();
 encryption = new encryption();
-db = new db(); 
 var param;
 router.post('/', async function (req, res, next) {
+
+    
     var data = req.body || '1';
     var user_login;
     var account_num;

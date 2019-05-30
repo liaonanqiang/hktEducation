@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { environment } from './../../environments/environment';
 
@@ -9,11 +9,20 @@ import { environment } from './../../environments/environment';
 export class JwtService {
 
   apiUrl = environment.apiUrl;
+  token: string;
     constructor(private httpClient: HttpClient) { }
 
      public get currentUserValue() {
         return sessionStorage.getItem('currentUser');
     }
+
+    // public get setTokenHeader() {
+    //    this.token = "Bearer " + sessionStorage.getItem('access_token');
+    //    let headers = new Headers();
+    //    headers.append('Authorization', this.token);
+    //    let options = new RequestOptions({ headers: headers });
+    //    return options;
+    // }
 
 
     login(username: string, password: string) {

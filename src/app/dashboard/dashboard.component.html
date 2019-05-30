@@ -28,7 +28,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="../index.html"><a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.png"></a></a>
+                <a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -155,7 +155,7 @@
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
 	                                        <h5 class="text-muted">Total Students</h5>
-	                                        <h2 class="mb-0"> 856</h2>
+	                                        <h2 class="mb-0"> {{student_num}}</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-info-light mt-1">
 	                                        <i class="fas fa-user fa-fw fa-sm text-info"></i>
@@ -174,7 +174,7 @@
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
 	                                        <h5 class="text-muted">Lv 1</h5>
-	                                        <h2 class="mb-0"> 363</h2>
+	                                        <h2 class="mb-0"> {{level1_num}}</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
 	                                        <i class="fa fa-graduation-cap fa-fw fa-sm text-primary"></i>
@@ -193,7 +193,7 @@
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
 	                                        <h5 class="text-muted">Lv 2</h5>
-	                                        <h2 class="mb-0">367</h2>
+	                                        <h2 class="mb-0">{{level2_num}}</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
 	                                        <i class="fas fa-graduation-cap fa-fw fa-sm text-secondary"></i>
@@ -212,7 +212,7 @@
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
 	                                        <h5 class="text-muted">Total Teachers</h5>
-	                                        <h2 class="mb-0"> 2</h2>
+	                                        <h2 class="mb-0"> {{teacher_num}}</h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
 	                                        <i class="fas fa-user fa-fw fa-sm text-brand"></i>
@@ -237,7 +237,7 @@
                             <div class="card-body border-top">
                                 <div class="row">
                                     <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 p-3">
-                                        <h4> Total Students: 628</h4>
+                                        <h4> Total Students: {{student_num}}</h4>
                                         <p>Suspendisse potenti. Done csit amet rutrum.
                                         </p>
                                     </div>
@@ -341,54 +341,6 @@
                                                 <td>27-08-2018 01:22:12 </td>
                                             </tr>
                                             <tr>
-                                                <td>2</td>
-                                                <td>
-                                                    <div class="m-r-10">id000002</div>
-                                                </td>
-                                                <td>陳大文 </td>
-                                                <td>Rachel J. Wicker</td>
-                                                <td>1</td>
-                                                <td>A</td>
-                                                <td>94%</td>
-                                                <td>25-08-2018 21:12:56 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>
-                                                    <div class="m-r-10">id000003</div>
-                                                </td>
-                                                <td>陳大文 </td>
-                                                <td>Michael K. Ledford </td>
-                                                <td>1</td>
-                                                <td>A</td>
-                                                <td>93%</td>
-                                                <td>24-08-2018 14:12:77 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>
-                                                    <div class="m-r-10">id000004</div>
-                                                </td>
-                                                <td>陳大文 </td>
-                                                <td>Michael K. Ledford </td>
-                                                <td>1</td>
-                                                <td>B</td>
-                                                <td>91%</td>
-                                                <td>23-08-2018 09:12:35</td>
-                                            </tr>
-											<tr>
-                                                <td>5</td>
-                                                <td>
-                                                    <div class="m-r-10">id000005</div>
-                                                </td>
-                                                <td>陳大文 </td>
-                                                <td>Michael K. Ledford  </td>
-                                                <td>1</td>
-                                                <td>A</td>
-                                                <td>89%</td>
-                                                <td>24-08-2018 14:12:77</td>
-                                            </tr>
-                                            <tr>
                                                 <td colspan="8"><a href="#" class="btn btn-outline-light float-right">View More Students</a></td>
                                             </tr>
                                         </tbody>
@@ -399,7 +351,7 @@
                     </div>
                 </div>
 
-          <!--   </div> -->
+            </div>
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
@@ -425,33 +377,10 @@
         <!-- end wrapper  -->
         <!-- ============================================================== -->
     </div>
-    </div>
     <!-- ============================================================== -->
     <!-- end main wrapper  -->
     <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <!-- jquery 3.3.1 js-->
-    <script src="../assets/jquery/jquery-3.3.1.min.js"></script>
-    <!-- bootstrap bundle js-->
-    <script src="../assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- slimscroll js-->
-    <script src="../assets/slimscroll/jquery.slimscroll.js"></script>
-    <!-- chartjs js-->
-    <script src="../assets/charts/charts-bundle/Chart.bundle.js"></script>
-    <script src="../assets/charts/charts-bundle/chartjs.js"></script>
-   
-    <!-- main js-->
-    <script src="../assets/libs/js/main-js.js"></script>
-    <!-- jvactormap js-->
-    <script src="../assets/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="../assets/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- sparkline js-->
-    <script src="../assets/charts/sparkline/jquery.sparkline.js"></script>
-    <script src="../assets/charts/sparkline/spark-js.js"></script>
-     <!-- dashboard sales js-->
-    <script src="../assets/libs/js/dashboard-sales.js"></script>
-	 <!-- dashboard finance js -->
-	 <script src="../assets/libs/js/dashboard-finance.js"></script>
+  
 </body>
  
 </html>

@@ -1,14 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../mysql/conn.js');
 var rabbit = require('../rabbitmq/publish_amqp.js');
 var amqp = require('amqplib/callback_api');
 var record;
 const querystring = require('querystring');
 rabbit  = new rabbit();
-db = new db(); 
 var param;
-console.log('3333')
 router.get('/', function (req, res, next) {
     var data = req.body || '1';
  

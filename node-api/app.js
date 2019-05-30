@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var users = require('./routes/users');
 var login = require('./auth/login');
+var dashboard = require('./menu/dashboard');
 var app = express();
 var http=require('http');
 var amq = require('./rabbitmq/producer');
@@ -39,13 +40,9 @@ process.on('unhandledRejection', function (reason, promise) {
   reporter("uncaughtException", (new Date).toUTCString(), reason.message || reason);
 })
 
-// app.listen(3000, "0.0.0.0");
+
 app.use('/api', users);
 app.use('/api/auth/login', login);
-//console.log('port', config.SERVER_PORT)
-
-// app.listen(3000, "10.0.2.15",() => {
-//   console.log('connected')
-// })
+app.use('/api/menu/dashboard', dashboard);
 
 module.exports = app;

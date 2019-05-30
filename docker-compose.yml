@@ -9,22 +9,22 @@ services: # Here we define our service(s)
       ports: 
         - '4200:4200' # Port mapping
       # command: npm start
-      links:
-        - node-service
+      # links:
+      #   - node-service
       command: > 
         bash -c "ng serve  --proxy-config proxy.conf.json --host 0.0.0.0 --port 4200"
     #     # ng serve --host 0.0.0.0 --port 4200 --proxy-config proxy.conf.json
 
 
-    node-service:
-      container_name: nodecontainer
-      build: ./node-api
-      volumes:
-        - './node-api:/usr/node-api'
-        - ./node-api/node_modules:/usr/node-api/node_modules
-        - './conf/my.cnf:/etc/my.cnf'
-      ports:
-        - '3000:3000'
-      command: npm start 
+    # node-service:
+    #   container_name: nodecontainer
+    #   build: ./node-api
+    #   volumes:
+    #     - './node-api:/usr/node-api'
+    #     - ./node-api/node_modules:/usr/node-api/node_modules
+    #     - './conf/my.cnf:/etc/my.cnf'
+    #   ports:
+    #     - '3000:3000'
+    #   command: npm start 
       # command: > 
       #   bash -c "npm start  --host 0.0.0.0"
